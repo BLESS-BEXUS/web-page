@@ -1,12 +1,39 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Navigation } from "@/components/Navigation";
+import { HeroSection } from "@/components/HeroSection";
+import { MissionSection } from "@/components/MissionSection";
+import { WhatWeFlySection } from "@/components/WhatWeFlySection";
+import { ArchitectureSection } from "@/components/ArchitectureSection";
+import { FlightProfileSection } from "@/components/FlightProfileSection";
+import { OutcomesSection } from "@/components/OutcomesSection";
+import { TeamSection } from "@/components/TeamSection";
+import { OutreachSection } from "@/components/OutreachSection";
+import { SponsorsSection } from "@/components/SponsorsSection";
+import { FAQSection } from "@/components/FAQSection";
+import { ContactSection } from "@/components/ContactSection";
+import { PressKitSection } from "@/components/PressKitSection";
+import { Footer } from "@/components/Footer";
+import { BackToTop } from "@/components/BackToTop";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Navigation />
+      <main>
+        <HeroSection />
+        <MissionSection />
+        <WhatWeFlySection />
+        <ArchitectureSection />
+        <FlightProfileSection />
+        <OutcomesSection />
+        <TeamSection />
+        <OutreachSection />
+        <SponsorsSection />
+        <FAQSection />
+        <ContactSection />
+        <PressKitSection />
+      </main>
+      <Footer />
+      <BackToTop />
     </div>
   );
 };
