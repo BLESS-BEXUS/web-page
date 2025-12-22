@@ -5,26 +5,52 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Send, Mail, MapPin } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react"; // 1. Añadido useRef
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser"; // 2. Importamos EmailJS
 
 export function ContactSection() {
     const { toast } = useToast();
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const form = useRef<HTMLFormElement>(null); // 3. Creamos la referencia al formulario
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Simulate form submission
-        setTimeout(() => {
-            setIsSubmitting(false);
-            toast({
-                title: "Message sent!",
-                description: "We'll get back to you as soon as possible.",
-            });
-            (e.target as HTMLFormElement).reset();
-        }, 1000);
+        // Validamos que el formulario exista
+        if (!form.current) return;
+
+        // Variables de entorno (Asegúrate de tenerlas en tu .env)
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+        emailjs
+            .sendForm(serviceId, templateId, form.current, {
+                publicKey: publicKey,
+            })
+            .then(
+                () => {
+                    setIsSubmitting(false);
+                    toast({
+                        title: "Message sent!",
+                        description:
+                            "We'll get back to you as soon as possible.",
+                    });
+                    form.current?.reset(); // Limpiamos el formulario
+                },
+                (error) => {
+                    setIsSubmitting(false);
+                    console.error("FAILED...", error.text);
+                    toast({
+                        variant: "destructive", // Toast rojo de error
+                        title: "Error sending message",
+                        description:
+                            "Please try again later or email us directly.",
+                    });
+                }
+            );
     };
 
     return (
@@ -82,6 +108,7 @@ export function ContactSection() {
                             <a
                                 href="https://www.linkedin.com/company/bless-bexus"
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 className="w-10 h-10 rounded-lg glass-card flex items-center justify-center hover:bg-primary/10 hover:border-primary/30 transition-colors"
                                 aria-label="LinkedIn"
                             >
@@ -96,6 +123,7 @@ export function ContactSection() {
                             <a
                                 href="https://www.instagram.com/blessbexus"
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 className="w-10 h-10 rounded-lg glass-card flex items-center justify-center hover:bg-primary/10 hover:border-primary/30 transition-colors"
                                 aria-label="Instagram"
                             >
@@ -118,6 +146,7 @@ export function ContactSection() {
                         className="md:col-span-3"
                     >
                         <form
+                            ref={form} // 4. Conectamos el ref
                             onSubmit={handleSubmit}
                             className="glass-card p-6 lg:p-8 space-y-5"
                         >
@@ -126,6 +155,7 @@ export function ContactSection() {
                                     <Label htmlFor="name">Name</Label>
                                     <Input
                                         id="name"
+                                        name="user_name" // 5. Atributo name añadido
                                         placeholder="Your name"
                                         required
                                         className="bg-secondary/50 border-border/50 focus:border-primary"
@@ -136,6 +166,7 @@ export function ContactSection() {
                                     <Input
                                         id="email"
                                         type="email"
+                                        name="user_email" // 5. Atributo name añadido
                                         placeholder="you@example.com"
                                         required
                                         className="bg-secondary/50 border-border/50 focus:border-primary"
@@ -147,6 +178,7 @@ export function ContactSection() {
                                 <Label htmlFor="subject">Subject</Label>
                                 <Input
                                     id="subject"
+                                    name="subject" // 5. Atributo name añadido
                                     placeholder="What's this about?"
                                     required
                                     className="bg-secondary/50 border-border/50 focus:border-primary"
@@ -157,6 +189,7 @@ export function ContactSection() {
                                 <Label htmlFor="message">Message</Label>
                                 <Textarea
                                     id="message"
+                                    name="message" // 5. Atributo name añadido
                                     placeholder="Tell us more..."
                                     rows={5}
                                     required
