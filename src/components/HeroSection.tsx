@@ -50,7 +50,7 @@ export function HeroSection() {
                         className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6"
                     >
                         <span className="gradient-text">BLESS:</span>{" "}
-                        <span className="text-foreground">BLESS & HaLow</span>
+                        <span className="text-foreground">BEXUS & HaLow</span>
                         <br />
                         <span className="text-foreground/90">
                             Evaluation in Stratospheric Systems
