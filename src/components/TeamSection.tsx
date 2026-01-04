@@ -38,6 +38,11 @@ const teamMembers = [
         role: "Systems Engineering Specialist",
         initials: "JM",
     },
+    {
+        name: "Jose Antonio Ossorio",
+        role: "Technical Reviewer",
+        initials: "JO",
+    },
 ];
 
 export function TeamSection() {
@@ -60,10 +65,12 @@ export function TeamSection() {
                         className="glass-card-hover p-5 text-center group"
                     >
                         {/* Avatar */}
-                        <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/30 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                            <span className="font-display text-2xl font-bold text-primary">
-                                {member.initials}
-                            </span>
+                        <div className="w-40 h-40 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-primary/30 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                            <img
+                                src={`/team/${member.initials}.png`}
+                                alt={member.name}
+                                className="w-full h-full object-cover"
+                            />
                         </div>
 
                         {/* Info */}
