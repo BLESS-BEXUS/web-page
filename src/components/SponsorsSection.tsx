@@ -2,7 +2,7 @@ import { SectionWrapper, SectionHeader } from "./SectionWrapper";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Handshake, Eye, Users, Award } from "lucide-react";
-import { link } from "fs";
+import { Link } from "react-router-dom";
 
 const benefits = [
     {
@@ -49,9 +49,9 @@ export function SponsorsSection() {
     return (
         <SectionWrapper id="sponsors" alternate>
             <SectionHeader
-                badge="Partnership"
-                title="Become a Sponsor"
-                description="Support cutting-edge aerospace research and gain visibility in the international space community."
+                badge="Our Sponsors"
+                title="Current Partners"
+                description="We're grateful to our sponsors who make this mission possible."
             />
 
             {/* Benefits */}
@@ -78,32 +78,25 @@ export function SponsorsSection() {
 
             {/* Sponsor Logos Grid */}
             <div className="glass-card p-8 mb-8">
-                <h3 className="font-display text-xl font-semibold text-center mb-6">
-                    Our Sponsors
-                </h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                     {sponsors.map((sponsor, index) => (
-                        <motion.div
+                        <motion.a
                             key={sponsor.name}
+                            href={sponsor.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="sponsor-placeholder h-24 rounded-xl glass-card-hover"
+                            className="h-24 rounded-xl glass-card-hover flex items-center justify-center p-4 hover:scale-105 transition-transform"
                         >
-                            <a
-                                href={sponsor.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                            >
-                                <img
-                                    src={`/sponsors/${sponsor.logo}`}
-                                    alt={sponsor.name}
-                                    className="w-full h-full object-contain p-4"
-                                />{" "}
-                            </a>
-                        </motion.div>
+                            <img
+                                src={`/sponsors/${sponsor.logo}`}
+                                alt={sponsor.name}
+                                className="max-h-full max-w-full object-contain"
+                            />
+                        </motion.a>
                     ))}
                 </div>
             </div>
@@ -116,22 +109,14 @@ export function SponsorsSection() {
                 className="text-center"
             >
                 <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                    Join us in pushing the boundaries of wireless technology.
-                    Sponsors receive prominent placement on mission materials,
-                    social media recognition, and acknowledgment in our final
-                    scientific publication.
+                    Interested in supporting aerospace research? Learn more
+                    about our sponsorship opportunities.
                 </p>
-                <Button
-                    variant="hero"
-                    size="lg"
-                    onClick={() => {
-                        const element = document.querySelector("#contact");
-                        if (element)
-                            element.scrollIntoView({ behavior: "smooth" });
-                    }}
-                >
-                    <Handshake className="w-5 h-5" />
-                    Become a Sponsor
+                <Button variant="heroOutline" size="lg" asChild>
+                    <Link to="/sponsors">
+                        <Handshake className="w-5 h-5" />
+                        View Sponsorship Options
+                    </Link>
                 </Button>
             </motion.div>
         </SectionWrapper>
