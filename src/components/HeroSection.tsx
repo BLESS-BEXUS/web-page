@@ -74,11 +74,18 @@ export function HeroSection() {
                         transition={{ duration: 0.6, delay: 0.3 }}
                         className="flex flex-col sm:flex-row items-center justify-center gap-4"
                     >
-                        <Button variant="hero" size="lg" asChild>
-                            <Link to="/about" className="group">
-                                Read the Mission
-                                <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                            </Link>
+                        <Button
+                            variant="hero"
+                            size="lg"
+                            className="group"
+                            onClick={() =>
+                                document
+                                    .getElementById("mission")
+                                    ?.scrollIntoView({ behavior: "smooth" })
+                            }
+                        >
+                            Read the Mission
+                            <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                         </Button>
                         <Button variant="heroOutline" size="lg" asChild>
                             <Link to="/team">
