@@ -1,16 +1,10 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Users } from "lucide-react";
+import { ChevronRight, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-balloon.jpg";
 
 export function HeroSection() {
-    const scrollToSection = (href: string) => {
-        const element = document.querySelector(href);
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-        }
-    };
-
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
             {/* Background Image with Overlay */}
@@ -80,22 +74,17 @@ export function HeroSection() {
                         transition={{ duration: 0.6, delay: 0.3 }}
                         className="flex flex-col sm:flex-row items-center justify-center gap-4"
                     >
-                        <Button
-                            variant="hero"
-                            size="lg"
-                            onClick={() => scrollToSection("#mission")}
-                            className="group"
-                        >
-                            Read the Mission
-                            <ChevronDown className="w-4 h-4 transition-transform group-hover:translate-y-1" />
+                        <Button variant="hero" size="lg" asChild>
+                            <Link to="/about" className="group">
+                                Read the Mission
+                                <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                            </Link>
                         </Button>
-                        <Button
-                            variant="heroOutline"
-                            size="lg"
-                            onClick={() => scrollToSection("#team")}
-                        >
-                            <Users className="w-4 h-4" />
-                            Meet the Team
+                        <Button variant="heroOutline" size="lg" asChild>
+                            <Link to="/team">
+                                <Users className="w-4 h-4" />
+                                Meet the Team
+                            </Link>
                         </Button>
                     </motion.div>
                 </div>
