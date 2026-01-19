@@ -21,7 +21,7 @@ const subsystems = [
             "Long-range, low-power Wi-Fi variant designed for IoT. We evaluate its performance in sub-zero temperatures and near-vacuum conditions.",
         icon: Wifi,
         color: "primary",
-    }
+    },
 ];
 
 const metrics = [
@@ -60,12 +60,6 @@ const metrics = [
 export function WhatWeFlySection() {
     return (
         <SectionWrapper id="what-we-fly">
-            <SectionHeader
-                badge="Payload"
-                title="Payload Subsystems"
-                description="Two complementary wireless systems designed to gather comprehensive RF performance data throughout the mission."
-            />
-
             {/* Subsystems */}
             <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-12">
                 {subsystems.map((system, index) => (
