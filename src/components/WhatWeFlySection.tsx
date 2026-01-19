@@ -9,6 +9,16 @@ import {
     Radiation,
     HardDrive,
 } from "lucide-react";
+import {
+    Wifi,
+    Bluetooth,
+    Activity,
+    Zap,
+    Thermometer,
+    Gauge,
+    Radiation,
+    HardDrive,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import techPattern from "@/assets/tech-pattern.jpg";
 
@@ -55,21 +65,46 @@ const metrics = [
         label: "Full Telemetry",
         description: "Complete data logging suite",
     },
+    {
+        icon: Activity,
+        label: "RSSI / SNR / PDR",
+        description: "Signal strength and quality metrics",
+    },
+    {
+        icon: Zap,
+        label: "TX Power & Energy",
+        description: "Transmission power and consumption",
+    },
+    {
+        icon: Thermometer,
+        label: "Internal Temps",
+        description: "Component thermal monitoring",
+    },
+    {
+        icon: Gauge,
+        label: "Pressure Data",
+        description: "Ambient pressure readings",
+    },
+    {
+        icon: Radiation,
+        label: "Radiation Levels",
+        description: "Particle and ray exposure",
+    },
+    {
+        icon: HardDrive,
+        label: "Full Telemetry",
+        description: "Complete data logging suite",
+    },
 ];
 
 export function WhatWeFlySection() {
     return (
         <SectionWrapper id="what-we-fly">
-            {/* Section intro */}
-            <div className="mb-10">
-                <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">
-                    Payload Subsystems
-                </h2>
-                <p className="text-muted-foreground max-w-2xl">
-                    Two complementary wireless systems designed to gather
-                    comprehensive RF performance data throughout the mission.
-                </p>
-            </div>
+            <SectionHeader
+                badge="Payload"
+                title="Payload Subsystems"
+                description="Two complementary wireless systems designed to gather comprehensive RF performance data throughout the mission."
+            />
 
             {/* Subsystems */}
             <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-12">
