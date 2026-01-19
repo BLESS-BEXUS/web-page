@@ -54,13 +54,7 @@ export function ContactSection() {
     };
 
     return (
-        <SectionWrapper id="contact" alternate>
-            <SectionHeader
-                badge="Get in Touch"
-                title="Contact Us"
-                description="Have questions about BLESS? Interested in collaboration or sponsorship? We'd love to hear from you."
-            />
-
+        <SectionWrapper id="contact">
             <div className="max-w-4xl mx-auto">
                 <div className="grid md:grid-cols-5 gap-8">
                     {/* Contact Info */}

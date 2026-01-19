@@ -47,13 +47,7 @@ const teamMembers = [
 
 export function TeamSection() {
     return (
-        <SectionWrapper id="team" alternate>
-            <SectionHeader
-                badge="Our Team"
-                title="Meet the Minds Behind BLESS"
-                description="A passionate team of students and researchers united by curiosity and a drive to explore the boundaries of wireless technology."
-            />
-
+        <SectionWrapper id="team">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
                 {teamMembers.map((member, index) => (
                     <motion.div
