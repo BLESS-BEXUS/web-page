@@ -9,16 +9,6 @@ import {
     Radiation,
     HardDrive,
 } from "lucide-react";
-import {
-    Wifi,
-    Bluetooth,
-    Activity,
-    Zap,
-    Thermometer,
-    Gauge,
-    Radiation,
-    HardDrive,
-} from "lucide-react";
 import { motion } from "framer-motion";
 import techPattern from "@/assets/tech-pattern.jpg";
 
