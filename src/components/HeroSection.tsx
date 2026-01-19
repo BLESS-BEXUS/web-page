@@ -58,8 +58,8 @@ export function HeroSection() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed"
                     >
-                        We evaluate how stratospheric conditions —temperature,
-                        pressure, and radiation— affect RF performance and
+                        We evaluate how stratospheric conditions (temperature,
+                        pressure, and radiation) affect RF performance and
                         operational behavior of{" "}
                         <span className="text-foreground font-medium">
                             Wi-Fi HaLow (802.11ah)
