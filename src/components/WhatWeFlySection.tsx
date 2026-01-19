@@ -9,6 +9,16 @@ import {
     Radiation,
     HardDrive,
 } from "lucide-react";
+import {
+    Wifi,
+    Bluetooth,
+    Activity,
+    Zap,
+    Thermometer,
+    Gauge,
+    Radiation,
+    HardDrive,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import techPattern from "@/assets/tech-pattern.jpg";
 
@@ -55,21 +65,46 @@ const metrics = [
         label: "Full Telemetry",
         description: "Complete data logging suite",
     },
+    {
+        icon: Activity,
+        label: "RSSI / SNR / PDR",
+        description: "Signal strength and quality metrics",
+    },
+    {
+        icon: Zap,
+        label: "TX Power & Energy",
+        description: "Transmission power and consumption",
+    },
+    {
+        icon: Thermometer,
+        label: "Internal Temps",
+        description: "Component thermal monitoring",
+    },
+    {
+        icon: Gauge,
+        label: "Pressure Data",
+        description: "Ambient pressure readings",
+    },
+    {
+        icon: Radiation,
+        label: "Radiation Levels",
+        description: "Particle and ray exposure",
+    },
+    {
+        icon: HardDrive,
+        label: "Full Telemetry",
+        description: "Complete data logging suite",
+    },
 ];
 
 export function WhatWeFlySection() {
     return (
         <SectionWrapper id="what-we-fly">
-            {/* Section intro */}
-            <div className="mb-10">
-                <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">
-                    Payload Subsystems
-                </h2>
-                <p className="text-muted-foreground max-w-2xl">
-                    Two complementary wireless systems designed to gather
-                    comprehensive RF performance data throughout the mission.
-                </p>
-            </div>
+            <SectionHeader
+                badge="Payload"
+                title="Payload Subsystems"
+                description="Two complementary wireless systems designed to gather comprehensive RF performance data throughout the mission."
+            />
 
             {/* Subsystems */}
             <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-12">
@@ -107,40 +142,38 @@ export function WhatWeFlySection() {
                                 </div>
                             </div>
                         </div>
-                        <div className="p-6">
-                            <p className="text-muted-foreground leading-relaxed">
-                                {system.description}
-                            </p>
+
+                        {/* Metrics Grid */}
+                        <div className="p-6 lg:p-8">
+                            <h3 className="font-display text-xl font-semibold mb-6 text-center">
+                                Logged Metrics & Telemetry
+                            </h3>
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                                {metrics.map((metric, index) => (
+                                    <motion.div
+                                        key={metric.label}
+                                        initial={{ opacity: 0, y: 10 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{
+                                            duration: 0.4,
+                                            delay: index * 0.05,
+                                        }}
+                                        className="text-center p-4 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-colors"
+                                    >
+                                        <metric.icon className="w-6 h-6 text-primary mx-auto mb-2" />
+                                        <div className="text-sm font-medium mb-1">
+                                            {metric.label}
+                                        </div>
+                                        <div className="text-xs text-muted-foreground">
+                                            {metric.description}
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
                         </div>
                     </motion.div>
                 ))}
-            </div>
-
-            {/* Metrics Grid */}
-            <div className="glass-card p-6 lg:p-8">
-                <h3 className="font-display text-xl font-semibold mb-6 text-center">
-                    Logged Metrics & Telemetry
-                </h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                    {metrics.map((metric, index) => (
-                        <motion.div
-                            key={metric.label}
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: index * 0.05 }}
-                            className="text-center p-4 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-colors"
-                        >
-                            <metric.icon className="w-6 h-6 text-primary mx-auto mb-2" />
-                            <div className="text-sm font-medium mb-1">
-                                {metric.label}
-                            </div>
-                            <div className="text-xs text-muted-foreground">
-                                {metric.description}
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
             </div>
         </SectionWrapper>
     );
