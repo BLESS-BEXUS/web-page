@@ -23,18 +23,19 @@ export function PageHeader({
     breadcrumb,
 }: PageHeaderProps) {
     return (
-        <section className="relative pt-28 pb-8 md:pt-32 md:pb-12 overflow-hidden">
+        <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden">
             {/* Background decorations */}
-            <div className="absolute inset-0 stars-bg opacity-10" />
-            <div className="absolute top-0 left-1/4 w-[600px] h-[300px] bg-primary/5 rounded-full blur-3xl" />
-            
+            <div className="absolute inset-0 stars-bg opacity-20" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+
             <div className="relative container mx-auto px-4 lg:px-8">
                 {/* Breadcrumb */}
                 {breadcrumb && (
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="mb-4"
+                        className="mb-6"
                     >
                         <nav className="flex items-center gap-2 text-sm text-muted-foreground">
                             <Link
@@ -65,9 +66,9 @@ export function PageHeader({
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4 }}
+                        transition={{ duration: 0.5 }}
                     >
-                        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-4">
+                        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-6">
                             {Icon && <Icon className="w-4 h-4" />}
                             {badge}
                         </span>
@@ -77,8 +78,8 @@ export function PageHeader({
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: 0.1 }}
-                        className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
                     >
                         {title}
                         {titleAccent && (
@@ -95,8 +96,8 @@ export function PageHeader({
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: 0.15 }}
-                        className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl"
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="text-lg md:text-xl text-muted-foreground leading-relaxed"
                     >
                         {description}
                     </motion.p>
