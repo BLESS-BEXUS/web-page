@@ -60,6 +60,17 @@ const metrics = [
 export function WhatWeFlySection() {
     return (
         <SectionWrapper id="what-we-fly">
+            {/* Section intro */}
+            <div className="mb-10">
+                <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">
+                    Payload Subsystems
+                </h2>
+                <p className="text-muted-foreground max-w-2xl">
+                    Two complementary wireless systems designed to gather
+                    comprehensive RF performance data throughout the mission.
+                </p>
+            </div>
+
             {/* Subsystems */}
             <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-12">
                 {subsystems.map((system, index) => (
