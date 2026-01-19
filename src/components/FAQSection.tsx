@@ -43,12 +43,12 @@ const faqs = [
 
 export function FAQSection() {
   return (
-    <SectionWrapper id="faq">
-      <SectionHeader
-        badge="Questions & Answers"
-        title="Frequently Asked Questions"
-        description="Everything you need to know about the BLESS experiment."
-      />
+    <SectionWrapper id="faq" alternate>
+      {/* Section intro */}
+      <div className="mb-10 text-center max-w-2xl mx-auto">
+        <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">Frequently Asked Questions</h2>
+        <p className="text-muted-foreground">Everything you need to know about the BLESS experiment.</p>
+      </div>
 
       <div className="max-w-3xl mx-auto">
         <Accordion type="single" collapsible className="space-y-4">
