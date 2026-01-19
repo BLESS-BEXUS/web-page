@@ -27,7 +27,6 @@ export function PageHeader({
             {/* Background decorations */}
             <div className="absolute inset-0 stars-bg opacity-10" />
             <div className="absolute top-0 left-1/4 w-[600px] h-[300px] bg-primary/5 rounded-full blur-3xl" />
-
             <div className="relative container mx-auto px-4 lg:px-8">
                 {/* Breadcrumb */}
                 {breadcrumb && (
