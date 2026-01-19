@@ -65,7 +65,6 @@ export function ContactSection() {
                     hear from you.
                 </p>
             </div>
-
             <div className="max-w-4xl mx-auto">
                 <div className="grid md:grid-cols-5 gap-8">
                     {/* Contact Info */}
