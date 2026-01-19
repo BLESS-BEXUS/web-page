@@ -1,4 +1,5 @@
 import { Layout } from "@/components/Layout";
+import { PageHeader } from "@/components/PageHeader";
 import { SponsorsSection } from "@/components/SponsorsSection";
 import { SectionWrapper, SectionHeader } from "@/components/SectionWrapper";
 import { motion } from "framer-motion";
@@ -76,42 +77,14 @@ const whySponsor = [
 const Sponsors = () => {
     return (
         <Layout>
-            <div className="pt-20">
-                {/* Hero section for sponsors page */}
-                <SectionWrapper id="sponsors-hero">
-                    <div className="text-center max-w-3xl mx-auto">
-                        <motion.span
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-6"
-                        >
-                            <Handshake className="w-4 h-4" />
-                            Partnership Opportunities
-                        </motion.span>
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className="font-display text-4xl md:text-5xl font-bold mb-6"
-                        >
-                            Support{" "}
-                            <span className="gradient-text">
-                                Aerospace Research
-                            </span>
-                        </motion.h1>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            className="text-lg text-muted-foreground leading-relaxed"
-                        >
-                            Partner with BLESS and contribute to advancing
-                            wireless communication technologies for near-space
-                            applications. Your support enables groundbreaking
-                            research under the ESA BEXUS program.
-                        </motion.p>
-                    </div>
-                </SectionWrapper>
+            <PageHeader
+                badge="Partnership Opportunities"
+                title="Support"
+                titleAccent="Aerospace Research"
+                description="Partner with BLESS and contribute to advancing wireless communication technologies for near-space applications. Your support enables groundbreaking research under the ESA BEXUS program."
+                icon={Handshake}
+                breadcrumb={{ label: "Sponsors", href: "#" }}
+            />
 
                 {/* Why Sponsor */}
                 <SectionWrapper id="why-sponsor" alternate>
@@ -221,7 +194,6 @@ const Sponsors = () => {
                         </Button>
                     </motion.div>
                 </SectionWrapper>
-            </div>
         </Layout>
     );
 };
