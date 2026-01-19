@@ -17,12 +17,12 @@ const groundComponents = [
 
 export function ArchitectureSection() {
   return (
-    <SectionWrapper id="architecture">
-      <SectionHeader
-        badge="System Design"
-        title="Architecture Overview"
-        description="A modular payload design paired with a ground-based software-defined radio receiver for comprehensive RF analysis."
-      />
+    <SectionWrapper id="architecture" alternate>
+      {/* Section intro */}
+      <div className="mb-10">
+        <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">System Architecture</h2>
+        <p className="text-muted-foreground max-w-2xl">A modular payload design paired with a ground-based software-defined radio receiver for comprehensive RF analysis.</p>
+      </div>
 
       <div className="max-w-5xl mx-auto">
         {/* Architecture Diagram */}
