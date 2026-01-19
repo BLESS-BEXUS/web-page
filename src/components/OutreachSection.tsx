@@ -37,12 +37,12 @@ const phases = [
 
 export function OutreachSection() {
     return (
-        <SectionWrapper id="outreach">
-            <SectionHeader
-                badge="Communication Plan"
-                title="Outreach & Education"
-                description="Sharing our journey with the scientific community and inspiring the next generation of aerospace engineers."
-            />
+        <SectionWrapper id="outreach" alternate>
+            {/* Section intro */}
+            <div className="mb-10 text-center max-w-2xl mx-auto">
+                <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">Outreach & Education</h2>
+                <p className="text-muted-foreground">Sharing our journey with the scientific community and inspiring the next generation of aerospace engineers.</p>
+            </div>
 
             <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
                 {phases.map((phase, index) => (
