@@ -29,11 +29,6 @@ const teamMembers = [
         initials: "RJ",
     },
     {
-        name: "Mario Valverde",
-        role: "Mechanical Specialist",
-        initials: "MV",
-    },
-    {
         name: "Jacobo Martín",
         role: "Systems Engineering Specialist",
         initials: "JM",

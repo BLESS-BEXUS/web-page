@@ -9,11 +9,9 @@ const Technical = () => {
     return (
         <Layout>
             <PageHeader
-                badge="Technical Details"
                 title="Engineering the"
                 titleAccent="Mission"
                 description="Dive deep into the payload architecture, subsystems, and the complete flight profile that powers our stratospheric experiment."
-                icon={Cpu}
                 breadcrumb={{ label: "Technical", href: "#" }}
             />
             <WhatWeFlySection />
