@@ -14,6 +14,11 @@ const teamMembers = [
         initials: "CM",
     },
     {
+        name: "Jaime Bustamante",
+        role: "Mechanical Lead",
+        initials: "JB",
+    },
+    {
         name: "Óscar Sánchez",
         role: "Software & Data Specialist",
         initials: "OS",
@@ -32,6 +37,21 @@ const teamMembers = [
         name: "Jacobo Martín",
         role: "Systems Engineering Specialist",
         initials: "JM",
+    },
+    {
+        name: "Marco Rey",
+        role: "Mechanical Engineering Specialist",
+        initials: "MR",
+    },
+    {
+        name: "Andrea Martínez",
+        role: "Mechanical Engineering Specialist",
+        initials: "AM",
+    },
+    {
+        name: "Iván Aguado",
+        role: "Mechanical Engineering Specialist",
+        initials: "IA",
     },
     {
         name: "Jose Antonio Ossorio",
