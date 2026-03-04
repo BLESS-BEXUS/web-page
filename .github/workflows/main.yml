@@ -1,39 +1,38 @@
 name: Deploy to Heroku
 
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+            - main
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+    deploy:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # Necesario para el push a Heroku
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+              with:
+                  fetch-depth: 0 # Needed for pushing to Heroku
 
-      # 1. Configuramos Node.js en lugar de Python
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20' # Usamos una versión actual
-          cache: 'npm'       # Esto acelera la instalación de dependencias
+            # 1. Config Node.js
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "20"
 
-      # 2. Instalamos dependencias y probamos el build
-      # Esto es para asegurar que no hay errores ANTES de intentar subirlo
-      - name: Install dependencies & Build
-        run: |
-          npm ci
-          npm run build
+            # 2. Install dependencies and try building the project
+            # If the build fails, the workflow will stop here and won't attempt to deploy to Heroku
+            - name: Install dependencies & Build
+              run: |
+                  npm ci
+                  npm run build
 
-      # 3. Despliegue a Heroku
-      - name: Deploy to Heroku
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-          HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-        run: |
-          git remote add heroku https://heroku:${HEROKU_API_KEY}@git.heroku.com/${HEROKU_APP_NAME}.git
-          git push heroku HEAD:main --force
+            # 3. Deploy to Heroku
+            - name: Deploy to Heroku
+              env:
+                  HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+                  HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+              run: |
+                  git remote add heroku https://heroku:${HEROKU_API_KEY}@git.heroku.com/${HEROKU_APP_NAME}.git
+                  git push heroku HEAD:main --force
