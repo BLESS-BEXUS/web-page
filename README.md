@@ -43,6 +43,6 @@
 <p align="center">Supported by the REXUS/BEXUS Program and our generous sponsors.</p>
 <p align="center">
     <a href="https://github.com/BLESS-BEXUS/web-page/graphs/contributors">
-        <img src="https://contrib.rocks/image?repo=BLESS-BEXUS/web-page" width="800"/>
+        <img src="https://contrib.rocks/image?repo=BLESS-BEXUS/web-page" width="50"/>
     </a>
 </p>
