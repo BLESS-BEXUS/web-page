@@ -10,7 +10,7 @@
 <p align="center">Characterizing Wi-Fi HaLow (802.11ah) performance under extreme stratospheric conditions as part of <b>REXUS/BEXUS Cycle 17</b>.</p>
 
 <p align="center">
-   <a title="Heroku Deployment" href="https://bless-bexus-c52c33109880.herokuapp.com/">
+   <a title="Heroku Deployment" href="https://bless-bexus.es/">
         <img src="https://deploy-badge.vercel.app/heroku/bless-bexus-c52c33109880" alt="Heroku Deploy"/>
     </a>
     <a href="https://rexusbexus.net/">
