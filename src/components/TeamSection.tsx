@@ -75,7 +75,7 @@ export function TeamSection() {
                         className="glass-card-hover p-5 text-center group"
                     >
                         {/* Avatar */}
-                        <div className="w-40 h-40 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-primary/30 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                        <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-primary/30 overflow-hidden group-hover:scale-105 transition-transform duration-300">
                             <img
                                 src={`/team/${member.initials}.png`}
                                 alt={member.name}
